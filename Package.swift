@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "SAMKeychain",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v12)
     ],
@@ -16,6 +17,9 @@ let package = Package(
         .target(
             name: "SAMKeychain",
             path: "Sources",
+            resources: [
+                .process("../Support/en.lproj/SAMKeychain.strings")
+            ],
             publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath("."), // For locating internal headers, adjust as needed
